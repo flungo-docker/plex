@@ -1,5 +1,12 @@
 # PLEX CONFIG
+
+# Config directory location, will contain all plex config and database files.
 CONFIG=./config
+# Directory for data, this should be the directory with your media. Will be mounted to /data for use in plex.
 DATA=./data
+# Port to run plex on. Default:32400
 PORT=32400
+
+# Open ports for DLNA on local LAN?
 DLNA=true
+
