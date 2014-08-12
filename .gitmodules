@@ -1,0 +1,3 @@
+[submodule "docker-plex"]
+	path = docker-plex
+	url = git@github.com:timhaak/docker-plex.git
