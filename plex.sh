@@ -1,5 +1,9 @@
 #/bin/bash
 
+# Get all submodules and checkout to correct version before proceeding
+git submodule update
+
+# Set property file locations
 PROPERTIES=plex.properties
 PROPERTIES_EXAMPLE=$PROPERTIES.example
 
@@ -9,7 +13,7 @@ PROPERTIES_EXAMPLE=$PROPERTIES.example
 # If user properties file does not exist, copy example
 if [ ! -e $PROPERTIES ]
 then
-	echo $PROPERTIES does not exist. Copying default $PROPERTIES_EXAMPLE.
+	echo "$PROPERTIES does not exist. Copying default $PROPERTIES_EXAMPLE."
 	cp $PROPERTIES_EXAMPLE $PROPERTIES
 fi
 
@@ -17,17 +21,20 @@ fi
 . $PROPERTIES
 
 # Build docker image
+echo "Building docker image"
 docker build -t plex docker-plex/
 
 # Create config folder if it does not exist
 if [ ! -e $CONFIG ]
 then
- 	mkdir $CONFIG
+	echo "$(realpath $CONFIG) does not exist, creating directory"
+ 	mkdir -p $CONFIG
 fi
 # Create data folder if it does not exist
 if [ ! -e $DATA ]
 then
-	mkdir $DATA
+	echo "$(realpath $DATA) does not exist, creating directory"
+	mkdir -p $DATA
 fi
 
 # Run plex docker image
