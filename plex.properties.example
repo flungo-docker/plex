@@ -1,0 +1,5 @@
+# PLEX CONFIG
+CONFIG=./config
+DATA=./data
+PORT=32400
+DLNA=true
