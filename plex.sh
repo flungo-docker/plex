@@ -1,7 +1,7 @@
 #/bin/bash
 
 # Get all submodules and checkout to correct version before proceeding
-git submodule update
+git pull && git submodule init && git submodule update && git submodule status
 
 # Set property file locations
 PROPERTIES=plex.properties
