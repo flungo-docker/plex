@@ -6,6 +6,8 @@ CONFIG=./config
 DATA=./data
 # Port to run plex on. Default:32400
 PORT=32400
+# Name of the docker container created
+NAME=plex
 
 # Open ports for DLNA on local LAN?
 DLNA=true

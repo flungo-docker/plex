@@ -37,5 +37,7 @@ then
 	mkdir -p $DATA
 fi
 
+docker stop $NAME
+docker rm $NAME
 # Run plex docker image
-docker run -d -v $(realpath $CONFIG):/config -v $(realpath $DATA):/data -p $PORT:32400 plex
+docker run -d --name=$NAME $RUN_OPTS -v $(realpath $CONFIG):/config -v $(realpath $DATA):/data -p $PORT:32400 plex
